@@ -10,7 +10,7 @@ def num_digits_in(x):
     y = log10(x)
     if (y % 1 == 0) and not (x % 10 == 0):
         return int(y)
-	
+    
     return int(floor(y) + 1)
 
 def reverse_digits(x):
