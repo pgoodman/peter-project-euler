@@ -1,7 +1,9 @@
 
 from math import sqrt
-sum_one_to = __import__("001 - sum multiples of 3 and 5").sum_one_to
-factorize = __import__("003 - largest prime factor of composite").factorize
+from project_euler import *
+
+sum_one_to = import_problem(1, 'sum_one_to')
+factorize, divides = import_problem(3, 'factorize', 'divides')
 
 def num_factors(n):
     """
@@ -54,10 +56,10 @@ def triangle_with_min_num_factors_slower(min_num_factors):
         root = int(sqrt(num))
 
         for n in xrange(1, root+1):
-            if (num % n) is 0:
+            if divides(n, num):
                 num_factors += 2
 
-        if root**2 is num:
+        if pow(root, 2) is num:
             num_factors -= 1
     else:
         return i, num, num_factors
