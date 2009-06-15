@@ -1,4 +1,12 @@
 
+def divides(a, b):
+    """
+    divides(int, int) -> bool
+    
+    Return whether or not a evenly divides b.
+    """
+    return (b % a) == 0
+
 def sum_one_to(n):
     """
     choose2(int) -> int
@@ -14,7 +22,7 @@ def linear_solution(n):
     time."""
     s = 0
     for i in range(1, n):
-        if (i % 3) == 0 or (i % 5) == 0:
+        if divides(3, i) or divides(5, i):
             s = s + i
     return s
 
@@ -25,4 +33,4 @@ def constant_solution(n):
     return int(3 * sum_one_to(n/3)) + int(5 * sum_one_to(n/5)) - int(15 * sum_one_to(n/15))
 
 if __name__ == "__main__":
-    print linear_solution(1000), constant_solution(1000)
+    print constant_solution(1000)

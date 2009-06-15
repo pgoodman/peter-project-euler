@@ -1,4 +1,12 @@
 
+def is_even(n):
+    """
+    is_even(int) -> Bool
+    
+    Return whether or not a given number is even.
+    """
+    return (n & 1) == 0
+
 def sum_of_even_fibonacci_numbers(max_fib):
     """
     sum_of_even_fibonacci_numbers(int) -> int
@@ -12,7 +20,7 @@ def sum_of_even_fibonacci_numbers(max_fib):
     
     while f < max_fib:
         f, i = f + i, f
-        if f & 1 == 0:
+        if is_even(f):
             total += f
     else:
         return total

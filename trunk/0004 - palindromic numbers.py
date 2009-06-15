@@ -1,5 +1,8 @@
 
 from math import log10, floor, ceil
+from project_euler import import_problem
+
+is_even = import_problem(2, 'is_even')
 
 def num_digits_in(x):
     """
@@ -8,7 +11,7 @@ def num_digits_in(x):
     Returns the number of digits in a given number.
     """
     y = log10(x)
-    if (y % 1 == 0) and not (x % 10 == 0):
+    if is_even(y) and not divides(10, x):
         return int(y)
     
     return int(floor(y) + 1)
@@ -28,8 +31,9 @@ def reverse_digits(x):
     return int(r / 10)
 
 def digit_aware_brute_force_palindromes(min_mult, max_mult):
-    """Brute from the palindromes so we have a list of correct results to
-       check against.
+    """
+    Brute from the palindromes so we have a list of correct results to
+    check against.
     
     This method figures out what the maximum number of palindromic numbers
     we should find are, gets only that many, and stops. While this method
@@ -44,9 +48,10 @@ def digit_aware_brute_force_palindromes(min_mult, max_mult):
     digits_min = int(ceil(num_digits_in(min_mult**2) / 2))
     digits_max = int(ceil(num_digits_in(max_mult**2) / 2))
     max_to_look_for = (10**(digits_max - 1) * 9) - (10**(digits_min - 1) * 9)
-    
-    for i in xrange(max_mult, min_mult-1, -1):
-        for j in xrange(max_mult, min_mult-1, -1):
+    the_range = xrange(max_mult, min_mult-1, -1)
+
+    for i in the_range:
+        for j in the_range:
             res = j * i
             if res == reverse_digits(res):
                 num_palindromes_found = num_palindromes_found + 1
@@ -62,8 +67,9 @@ def digit_aware_brute_force_palindromes(min_mult, max_mult):
     return (max_palindrome, max_palindrom_pair)
 
 def quick_dismiss_brute_force_palindromes(min_mult, max_mult):
-    """Brute from the palindromes so we have a list of correct results to
-       check against.
+    """
+    Brute from the palindromes so we have a list of correct results to
+    check against.
 
     This method tries to dismiss numbers as quickly as possible. If the product
     of two numbers is less than our currently found maximum palindrome then that
@@ -71,9 +77,10 @@ def quick_dismiss_brute_force_palindromes(min_mult, max_mult):
     
     max_palindrome = 0
     max_palindrom_pair = (1, 1)
+    the_range = xrange(max_mult, min_mult-1, -1)
     
-    for i in xrange(max_mult, min_mult-1, -1):
-        for j in xrange(max_mult, min_mult-1, -1):
+    for i in the_range:
+        for j in the_range:
             res = j * i
             
             # quickly dismiss results that are less than our current maximum

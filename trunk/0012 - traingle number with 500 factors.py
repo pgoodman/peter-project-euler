@@ -2,8 +2,9 @@
 from math import sqrt
 from project_euler import import_problem
 
-sum_one_to = import_problem(1, 'sum_one_to')
-factorize, divides = import_problem(3, 'factorize', 'divides')
+sum_one_to, divides = import_problem(1, 'sum_one_to', 'divides')
+is_even = import_problem(2, 'is_even')
+factorize = import_problem(3, 'factorize')
 
 def num_factors(n):
     """
@@ -81,7 +82,7 @@ def triangle_with_min_num_factors_slow(min_num_factors):
         i += 1
         j = i+1
         
-        if (i & 1) is 0:
+        if is_even(i):
             factor_count = factor_table[i / 2]
         else:
             j /= 2
