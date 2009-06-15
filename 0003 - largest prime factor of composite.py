@@ -1,5 +1,8 @@
 
 from math import floor, ceil, sqrt
+from project_euler import import_problem
+
+divides = import_problem(1, 'divides')
 
 # set of primes < 1000, helpful for possibly reducing the problem
 # of prime factorization to a slightly smaller problem
@@ -19,14 +22,6 @@ start_primes = (
     877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 
     967, 971, 977, 983, 991, 997
 )
-
-def divides(a, b):
-    """
-    divides(int, int) -> bool
-    
-    Return whether or not a evenly divides b.
-    """
-    return (b % a) == 0
 
 def divide_factor(num, factor):
     """

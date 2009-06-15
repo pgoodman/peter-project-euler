@@ -2,6 +2,7 @@
 from math import log, floor
 from project_euler import import_problem
 
+divides = import_problem(1, 'divides')
 factorize = import_problem(3, 'factorize')
 
 def default_list(num_elms, default_val):
@@ -21,7 +22,7 @@ def primes_less_than(n):
     """
     total = n
     for j in xrange(n-1, 1, -1):
-        if (total % j) > 0:
+        if not divides(j, total):
             total *= j
     
     return [prime for (prime, exponent) in factorize(total)]
@@ -49,7 +50,7 @@ def smallest_number_divisible_by_series(n):
         for p in primes:
             if p > num:
                 break
-            elif (num % p) is 0:
+            elif divides(p, num):
                 prime_exps[p] = max(floor(log_n / log(p)), prime_exps[p])
     
     # find the product of the primes raised to their respective exponents
