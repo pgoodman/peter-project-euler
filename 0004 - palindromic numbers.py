@@ -1,15 +1,16 @@
 
-from math import log10, pow, floor, ceil
+from math import log10, floor, ceil
 
-def digits(x):
+def num_digits_in(x):
     """
-    digits(int) -> int
+    num_digits_in(int) -> int
 
     Returns the number of digits in a given number.
     """
     y = log10(x)
-    if y % 1 == 0 and not x % 10 == 0:
+    if (y % 1 == 0) and not (x % 10 == 0):
         return int(y)
+	
     return int(floor(y) + 1)
 
 def reverse_digits(x):
@@ -40,8 +41,8 @@ def digit_aware_brute_force_palindromes(min_mult, max_mult):
     
     # figure out the maximum number of palindromes we should find to know that
     # we have found the largest number of palindromes.
-    digits_min = int(ceil(digits(min_mult**2) / 2))
-    digits_max = int(ceil(digits(max_mult**2) / 2))
+    digits_min = int(ceil(num_digits_in(min_mult**2) / 2))
+    digits_max = int(ceil(num_digits_in(max_mult**2) / 2))
     max_to_look_for = (10**(digits_max - 1) * 9) - (10**(digits_min - 1) * 9)
     
     for i in xrange(max_mult, min_mult-1, -1):
