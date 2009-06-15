@@ -47,8 +47,8 @@ def is_prime_factor(i, num):
     is_prime_factor(int, int) -> bool
     
     Return whether or not a number i is a prime factor of num. This method
-	uses a sieve to figure out if a number is a prime factor. Note: this does
-	not use the sieve of eratosthenes.
+    uses a sieve to figure out if a number is a prime factor. Note: this does
+    not use the sieve of eratosthenes.
     """
     
     # a non-factor cannot possibly be a prime factor
@@ -105,8 +105,8 @@ def factorize(num):
     factorize(int) -> list
     
     Return the sequence of prime factors for a given number. This method
-	uses a sieve to figure out if a number is a prime factor. Note: this does
-	not use the sieve of eratosthenes.
+    uses a sieve to figure out if a number is a prime factor. Note: this does
+    not use the sieve of eratosthenes.
     """
     reduced_num = num
     
