@@ -20,10 +20,12 @@ def import_problem(n, ident, *idents_opt):
 	identifiers = [ident, ]
 	identifiers.extend(idents_opt)
 	
+	# go find the file, import it, and then return either the specific object
+	# or list of objects
 	for file in files:
 		match = pattern.match(file)
 		if match:
-			module =__import__(match.group(1))
+			module =__import__(match.group(1), [], [], identifiers, -1)
 			
 			if len(identifiers) is 1:
 				return getattr(module, ident)

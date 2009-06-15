@@ -1,6 +1,8 @@
 
 from math import log, floor
-factorize = __import__("003 - largest prime factor of composite").factorize
+from project_euler import import_problem
+
+factorize = import_problem(3, 'factorize')
 
 def default_list(num_elms, default_val):
     """
