@@ -1,6 +1,6 @@
 
 from math import sqrt
-from project_euler import *
+from project_euler import import_problem
 
 sum_one_to = import_problem(1, 'sum_one_to')
 factorize, divides = import_problem(3, 'factorize', 'divides')
